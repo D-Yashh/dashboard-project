@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Hosting</title>
+  <link rel="stylesheet" href="cloud.css">
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+</head>
+
+<body>
+  <header id="site-header" class="fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/images/mylogo.png" alt="myphoto" class="img-fluid">
+        </a>
+        <!-- if logo is image enable this   
+      <a class="navbar-brand" href="#index.html">
+          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+      </a> -->
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item @@about__active">
+              <a class="nav-link" href="Resume 1.pdf">Resume</a>
+            </li>
+            <!-- <li class="nav-item @@contact__active">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li> -->
+          </ul>
+        </div>
+        <!-- toggle switch for light and dark theme -->
+
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+  <div class="wrapper">
+    <div class="sidebar">
+      <img src="./cloud/logo.png" alt="" srcset="">
+      <ul>
+        <li><a href="#overview"><i class=" home"></i>An Overview</a></li>
+        <li><a href="#hosting"><i class="user"></i>Hosting Issues</a></li>
+        <li><a href="#architecture"><i class="address-card"></i>Cloud Architecture</a></li>
+        <li><a href="#security"><i class="project-diagram"></i>Host Security</a></li>
+      </ul>
+    </div>
+    <div class="main_content">
+      <div class="info">
+        <h1 class="header1">Web Application Hosting in the AWS Cloud</h1>
+        <h2 >Abstract</h2>
+        <p>Highly available and scalable web hosting can be a complex and expensive proposition. Traditional scalable
+          web architectures have not only needed to implement complex solutions to ensure high levels of reliability,
+          but they have also required an accurate forecast of traffic to provide a high level of customer service. Dense
+          peak traffic periods and wild swings in traffic patterns result in low utilization rates of expensive
+          hardware. This yields high operating costs to maintain idle hardware, and an inefficient use of capital for
+          underused hardware.</p>
+        <p>Amazon Web Services (AWS) provides a reliable, scalable, secure, and highly performing infrastructure for the
+          most demanding web applications. This infrastructure matches IT costs with customer traffic patterns in real
+          time.</p>
+        <p>This whitepaper is for IT managers and system architects who look to the cloud to help them achieve the
+          scalability to meet their on-demand computing needs.</p>
+        <h2 id="overview">An Overview of Traditional Web Hosting</h2>
+        <p>Scalable web hosting is a well-known problem space. Figure 1 depicts a traditional web hosting architecture
+          that implements a common three-tier web application model. In this model, the architecture is separated into
+          presentation, application, and persistence layers. Scalability is provided by adding hosts at these layers.
+          The architecture also has built-in performance, failover, and availability features. The traditional web
+          hosting architecture is easily ported to the AWS Cloud with only a few modifications.</p>
+        <p>For example, the following graph shows a web application with a usage peak from 9AM to 3PM and less usage for
+          the remainder of the day. An automatic scaling approach based on actual traffic trends, which provisions
+          resources only when needed, would result in less wasted capacity and a greater than 50 percent reduction in
+          cost.</p>
+        <p><img src="https://wangfanggang.oss-cn-shanghai.aliyuncs.com/images/20200202124049.png" alt="20200202124049">
+        </p>
+        <p>In the following sections, we look at why and how such an architecture should be and could be deployed in the
+          AWS Cloud.</p>
+        <h2><a href="#Web-Application-Hosting-in-the-Cloud-Using-AWS"></a>Web Application Hosting in the Cloud Using AWS
+        </h2>
+        <p>The first question that you should ask concerns the value of moving a classic web application hosting
+          solution into the AWS Cloud. If you decide that the cloud is right for you, you’ll need a suitable
+          architecture. This section helps you evaluate an AWS Cloud solution. It compares deploying your web
+          application in the cloud to an on-premises deployment, presents an AWS Cloud architecture for hosting your
+          application, and discusses the key components of this solution.</p>
+        <h2 id="hosting"> How AWS Can Solve Common Web
+          Application Hosting Issues</h2>
+        <p>If you’re responsible for running a web application, you face a variety of infrastructure and architectural
+          issues for which AWS can provide seamless and cost-effective solutions. The following are just some of the
+          benefits of using AWS over a traditional hosting model.</p>
+        <h2><a href="#A-Cost-Effective-Alternative-to-Oversized-Fleets-Needed-to-Handle-Peaks"></a>A Cost-Effective
+          Alternative to Oversized Fleets Needed to Handle Peaks</h2>
+        <p>In the traditional hosting model, you have to provision servers to handle peak capacity. Unused cycles are
+          wasted outside of peak periods. Web applications hosted by AWS can leverage on-demand provisioning of
+          additional servers, so you can constantly adjust capacity and costs to actual traffic patterns.</p>
+        <p>For example, the following graph shows a web application with a usage peak from 9AM to 3PM and less usage for
+          the remainder of the day. An automatic scaling approach based on actual traffic trends, which provisions
+          resources only when needed, would result in less wasted capacity and a greater than 50 percent reduction in
+          cost.</p>
+        <p><img src="https://wangfanggang.oss-cn-shanghai.aliyuncs.com/images/20200202124240.png" alt="20200202124240">
+        </p>
+        <h2><a href="#A-Scalable-Solution-to-Handling-Unexpected-Traffic-Peaks"></a>A Scalable Solution to Handling
+          Unexpected Traffic Peaks</h2>
+        <p>An even more dire consequence of the slow provisioning associated with a traditional hosting model is the
+          inability to respond in time to unexpected traffic spikes. There are many stories about web applications going
+          down because of an unexpected spike in traffic after the site is mentioned in the popular media. The same
+          on-demand capability that helps web applications scale to match regular traffic spikes can also handle an
+          unexpected load. New hosts can be launched and ready in a matter of minutes, and they can be taken offline
+          just as quickly when traffic returns to normal.</p>
+        <h4><a href="#An-On-Demand-Solution-for-Test-Load-Beta-and-Preproduction-Environments"></a>An On-Demand Solution
+          for Test, Load, Beta, and Preproduction Environments</h4>
+        <p>The hardware costs of building out a traditional hosting environment for a production web application don’t
+          stop with the production fleet. Quite often, you need to create preproduction, beta, and testing fleets to
+          ensure the quality of the web application at each stage of the development lifecycle. While you can make
+          various optimizations to ensure the highest possible use of this testing hardware, these parallel fleets are
+          not always used optimally: a lot of expensive hardware sits unused for long periods of time.</p>
+        <p>In the AWS Cloud, you can provision testing fleets as you need them. Additionally, you can simulate user
+          traffic on the AWS Cloud during load testing. You can also use these parallel fleets as a staging environment
+          for a new production release. This enables quick switchover from current production to a new application
+          version with little or no service outages.</p>
+        <h4 id="architecture">An AWS Cloud Architecture for Web Hosting</h4>
+        <p>The following figure provides another look at that classic web application architecture and how it can
+          leverage the AWS Cloud computing infrastructure.</p>
+        <p><img src="https://wangfanggang.oss-cn-shanghai.aliyuncs.com/images/20200202124423.png" alt="20200202124423">
+        </p>
+        <ol>
+          <li><strong>Load Balancing with Elastic Load Balancing (ELB)/Application Load Balancer (ALB)</strong> – Allows
+            you to spread load across multiple Availability Zones and Amazon EC2 Auto Scaling groups for redundancy and
+            decoupling of services.</li>
+          <li><strong>Firewalls with Security Groups</strong> – Moves security to the instance to provide a stateful,
+            host-level firewall for both web and application servers.</li>
+          <li><strong>Caching with Amazon ElastiCache</strong> – Provides caching services with Redis or Memcached to
+            remove load from the app and database, and lower latency for frequent requests.</li>
+          <li><strong>Managed Database with Amazon RDS</strong> – Creates a highly available, Multi-AZ database
+            architecture with six possible DB engines.</li>
+          <li><strong>DNS Services with Amazon Route 53</strong> – Provides DNS services to simplify domain management.
+          </li>
+          <li><strong>Edge Caching with Amazon CloudFront</strong> – Edge caches high-volume content to decrease the
+            latency to customers.</li>
+          <li><strong>Edge Security for Amazon CloudFront with AWS WAF</strong> – Filters malicious traffic, including
+            XSS and SQL injection via customer-defined rules.</li>
+          <li><strong>DDoS Protection with AWS Shield</strong> – Safeguards your infrastructure against the most common
+            network and transport layer DDoS attacks automatically.</li>
+          <li><strong>Static Storage and Backups with Amazon S3</strong> – Enables simple HTTP-based object storage for
+            backups and static assets like images and video.</li>
+        </ol>
+        <h3><a href="#Key-Components-of-an-AWS-Web-Hosting-Architecture"></a>Key Components of an AWS Web Hosting
+          Architecture</h3>
+        <p>The following sections outline some of the key components of a web hosting architecture deployed in the AWS
+          Cloud, and explain how they differ from a traditional web hosting architecture.</p>
+        <h4><a href="#Network-Management"></a>Network Management</h4>
+        <p>In a cloud environment such as AWS, the ability to segment your network from that of other customers enables
+          a more secure and scalable architecture. While security groups provide host-level security (see the Host
+          Security section), Amazon Virtual Private Cloud (Amazon VPC) allows you to launch resources in a logically
+          isolated and virtual network that you define.</p>
+        <p>Amazon VPC is a free service that gives you full control over the details of your networking setup in AWS.
+          Examples of this control include creating public-facing subnets for web servers, and private subnets with no
+          internet access for your databases. Additionally, Amazon VPC enables you to create hybrid architectures by
+          using hardware virtual private networks (VPNs), and use the AWS Cloud as an extension of your own data center.
+        </p>
+        <p>Amazon VPC also includes IPv6 support in addition to traditional IPv4 support for your network.</p>
+        <h4><a href="#Content-Delivery"></a>Content Delivery</h4>
+        <p>Edge caching is still relevant in the AWS Cloud computing infrastructure. Any existing solutions in your web
+          application infrastructure should work just fine in the AWS Cloud. One additional option, however, is to use
+          Amazon CloudFront for edge caching your website.</p>
+        <p>You can use CloudFront to deliver your website, including dynamic, static, and streaming content using a
+          global network of edge locations. CloudFront automatically routes requests for your content to the nearest
+          edge location, so content is delivered with the best possible performance. CloudFront is optimized to work
+          with other AWS services, like Amazon Simple Storage Service 3 (Amazon S3) and Amazon Elastic Compute Cloud
+          (Amazon EC2). CloudFront also works seamlessly with any origin server that is not an AWS origin server, which
+          stores the original, definitive versions of your files.</p>
+        <p>Like other AWS services, there are no contracts or monthly commitments for using CloudFront – you pay only
+          for as much or as little content as you actually deliver through the service.</p>
+        <h4><a href="#Managing-Public-DNS"></a>Managing Public DNS</h4>
+        <p>Moving a web application to the AWS Cloud requires some DNS changes to take advantage of the multiple
+          Availability Zones that AWS provides. To help you manage DNS routing, AWS provides Amazon Route 53, 5 a highly
+          available and scalable DNS web service. Amazon Route 53 automatically routes queries for your domain to the
+          nearest DNS server. As a result, queries are answered with the best possible performance. Amazon Route 53
+          resolves requests for your domain name (for example, <a href="http://www.example.com">www.example.com</a>) to
+          your Classic Load Balancer, as well as your zone apex record (example.com).</p>
+        <h4 id="security">Host Security</h4>
+        <p>Unlike a traditional web hosting model, inbound network traffic filtering should not be confined to the edge;
+          it should also be applied at the host level. Amazon EC2 provides a feature named security groups. A security
+          group is analogous to an inbound network firewall, for which you can specify the protocols, ports, and source
+          IP ranges that are allowed to reach your EC2 instances. You can assign one or more security groups to each EC2
+          instance. Each security group routes the appropriate traffic to each instance. Security groups can be
+          configured so that only specific subnets or IP addresses have access to an EC2 instance. Or they can reference
+          other security groups to limit access to EC2 instances that are in specific groups.</p>
+        <p><img src="https://wangfanggang.oss-cn-shanghai.aliyuncs.com/images/20200202124901.png" alt="20200202124901">
+        </p>
+        <p>In the example AWS web hosting architecture in Figure 4, the security group for the web server cluster might
+          allow access for any host only over TCP on ports 80 and 443 (HTTP and HTTPS), and from instances in the
+          application server security group on port 22 (SSH) for direct host management. The application server security
+          group, on the other hand, might allow access from the web server security group for handling web requests and
+          from your organization’s subnet over TCP on port 22 (SSH) for direct host management. In this model, your
+          support engineers could log in directly to the application servers from the corporate network and then access
+          the other clusters from the application server boxes. For a deeper discussion on security, see the AWS
+          Security Center. 6 The center contains security bulletins, certification information, and security whitepapers
+          that explain the security capabilities of AWS.</p>
+        <h4><a href="#Load-Balancing-Across-Clusters"></a>Load Balancing Across Clusters</h4>
+        <p>Hardware load balancers are a common network appliance used in traditional web application architectures. AWS
+          provides this capability through the Elastic Load Balancing (ELB) service. ELB is a configurable
+          load-balancing solution that supports health checks on hosts, distribution of traffic to EC2 instances across
+          multiple Availability Zones, and dynamic addition and removal of Amazon EC2 hosts from the load-balancing
+          rotation. ELB can also dynamically grow and shrink the load-balancing capacity to adjust to traffic demands,
+          while providing a predictable entry point by using a persistent CNAME. ELB also supports sticky sessions to
+          address more advanced routing needs. If your application requires more advanced load-balancing capabilities
+          you can run a software load-balancing package (e.g., Zeus, HAProxy, or NGINX Plus) on EC2 instances. You can
+          then assign Elastic IP addresses to those load-balancing EC2 instances to minimize DNS changes.</p>
+        <h4><a href="#Finding-Other-Hosts-and-Services"></a>Finding Other Hosts and Services</h4>
+        <p>In the traditional web hosting architecture, most of your hosts have static IP addresses. In the cloud, most
+          of your hosts will have dynamic IP addresses. Although every EC2 instance can have both public and private DNS
+          entries and will be addressable over the internet, the DNS entries and the IP addresses are assigned
+          dynamically when you launch the instance. They cannot be manually assigned. Static IP addresses (Elastic IP
+          addresses in AWS terminology) can be assigned to running instances after they are launched. You should use
+          Elastic IP addresses for instances and services that require consistent endpoints, such as master databases,
+          central file servers, and EC2-hosted load balancers.</p>
+        <p>Server roles that can easily scale out and in, such as web servers, should be made discoverable at their
+          dynamic endpoints by registering their IP address with a central repository. Because most web application
+          architectures have a database server that is always on, the database server is a common repository for
+          discovery information. For situations where consistent addressing is needed, instances can be allocated
+          Elastic IP addresses from a pool of addresses by a bootstrapping script when the instance is launched.</p>
+        <p>Using this model, newly added hosts can request the list of necessary endpoints for communications from the
+          database as part of a bootstrapping phase. The location of the database can be provided as user data that is
+          passed into each instance as it is launched. Alternatively, you can use Amazon SimpleDB to store and maintain
+          configuration information. SimpleDB is a highly available service that is available at a well-known endpoint.
+        </p>
+        <h4><a href="#Caching-within-the-Web-Application"></a>Caching within the Web Application</h4>
+        <p>In-memory application caches can reduce load on services and improve performance and scalability on the
+          database tier by caching frequently used information. Amazon ElastiCache is a web service that makes it easy
+          to deploy, operate, and scale an inmemory cache in the cloud. You can configure the in-memory cache you create
+          to automatically scale with load and to automatically replace failed nodes. ElastiCache is protocol-compliant
+          with Memcached and Redis, which simplifies migration from your current on-premises solution.</p>
+        <h4><a href="#Database-Configuration-Backup-and-Failover"></a>Database Configuration, Backup, and Failover</h4>
+        <p>Many web applications contain some form of persistence, usually in the form of a relational or NoSQL
+          database. AWS offers both relational and NoSQL database infrastructure. Alternatively, you can deploy your own
+          database software on an EC2 instance. The following table summarizes these options, and we discuss them in
+          greater detail in this section.</p>
+        <table>
+          <tr>
+            <th></th>
+            <th><strong>Relational Database Solutions</strong></th>
+            <th><strong>NoSQL Solutions</strong></th>
+          </tr>
+          <tbody>
+            <tr>
+              <td>Managed Database Service</td>
+              <td>Amazon RDS – MySQL, Oracle, SQL Server, MariaDB, PostgreSQL, Amazon Aurora</td>
+              <td>Amazon DynamoDB</td>
+            </tr>
+            <tr>
+              <td>Self-Managed</td>
+              <td>Hosting a relational DBMS on an EC2 instance</td>
+              <td>Hosting a NoSQL solution on an EC2 instance</td>
+            </tr>
+          </tbody>
+        </table>
+        <h5><a href="#Amazon-RDS"></a>Amazon RDS</h5>
+        <p>Amazon Relational Database Service (Amazon RDS) gives you access to the capabilities of a familiar MySQL,
+          PostgreSQL, Oracle, and Microsoft SQL Server database engine. The code, applications, and tools that you
+          already use can be used with Amazon RDS. Amazon RDS automatically patches the database software and backs up
+          your database, and it stores backups for a user-defined retention period. It also supports point-in-time
+          recovery. You benefit from the flexibility of being able to scale the compute resources or storage capacity
+          associated with your relational database instance by making a single API call.</p>
+        <p>In addition, Amazon RDS Multi-AZ deployments increase your database availability and protect your database
+          against unplanned outages. Amazon RDS Read Replicas provide read-only replicas of your database, so you can
+          scale out beyond the capacity of a single database deployment for read-heavy database workloads. As with all
+          AWS services, no upfront investments are required, and you pay only for the resources you use.</p>
+        <h5><a href="#Hosting-a-Relational-Database-Management-System-RDBMS-on-an-Amazon-EC2-Instance"></a>Hosting a
+          Relational Database Management System (RDBMS) on an Amazon EC2 Instance</h5>
+        <p>In addition to the managed Amazon RDS offering, you can install your choice of RDBMS (such as MySQL, Oracle,
+          SQL Server, or DB2) on an EC2 instance and manage it yourself. AWS customers hosting a database on Amazon EC2
+          successfully use a variety of master/slave and replication models, including mirroring for read-only copies
+          and log shipping for always-ready passive slaves.</p>
+        <p>When managing your own database software directly on Amazon EC2, you should also consider the availability of
+          fault-tolerant and persistent storage. For this purpose, we recommend that databases running on Amazon EC2 use
+          Amazon Elastic Block Store (Amazon EBS) volumes, which are similar to network-attached storage. For EC2
+          instances running a database, you should place all database data and logs on EBS volumes. These will remain
+          available even if the database host fails. This configuration allows for a simple failover scenario, in which
+          a new EC2 instance can be launched if a host fails, and the existing EBS volumes can be attached to the new
+          instance. The database can then pick up where it left off.</p>
+        <p>EBS volumes automatically provide redundancy within the Availability Zone, which increases their availability
+          over simple disks. If the performance of a single EBS volume is not sufficient for your databases needs,
+          volumes can be striped to increase IOPS performance for your database. For demanding workloads you can also
+          use EBS Provisioned IOPS, where you specify the IOPS required. If you use Amazon RDS, the service manages its
+          own storage so you can focus on managing your data.</p>
+        <h5><a href="#NoSQL-Solutions"></a>NoSQL Solutions</h5>
+        <p>In addition to support for relational databases, AWS also offers Amazon DynamoDB, a fully managed NoSQL
+          database service that provides fast and predictable performance with seamless scalability. Using the AWS
+          Management Console or the DynamoDB API, you can scale capacity up or down without downtime or performance
+          degradation. Because DynamoDB handles the administrative burdens of operating and scaling distributed
+          databases to AWS, you don’t have to worry about hardware provisioning, setup and configuration, replication,
+          software patching, or cluster scaling.</p>
+        <p>Amazon SimpleDB provides a lightweight, highly available, and fault-tolerant core nonrelational database
+          service that offers querying and indexing of data without the requirement of a fixed schema. SimpleDB can be a
+          very effective replacement for databases in data access scenarios that require one big, highly indexed and
+          flexible schema table.</p>
+        <p>Additionally, you can use Amazon EC2 to host many other emerging technologies in the NoSQL movement, such as
+          Cassandra, CouchDB, and MongoDB.</p>
+        <h5><a href="#Storage-and-Backup-of-Data-and-Assets"></a>Storage and Backup of Data and Assets</h5>
+        <p>There are numerous options within the AWS Cloud for storing, accessing, and backing up your web application
+          data and assets. Amazon S3 provides a highly available and redundant object store. Amazon S3 is a great
+          storage solution for somewhat static or slow-changing objects, such as images, videos, and other static media.
+          Amazon S3 also supports edge caching and streaming of these assets by interacting with CloudFront.</p>
+        <p>For attached file system-like storage, EC2 instances can have EBS volumes attached. These act like mountable
+          disks for running EC2 instances. Amazon EBS is great for data that needs to be accessed as block storage and
+          that requires persistence beyond the life of the running instance, such as database partitions and application
+          logs.</p>
+        <p>In addition to having a lifetime that is independent of the EC2 instance, you can take snapshots of EBS
+          volumes and store them in Amazon S3. Because EBS snapshots only back up changes since the previous snapshot,
+          more frequent snapshots can reduce snapshot times. You can also use an EBS snapshot as a baseline for
+          replicating data across multiple EBS volumes and attaching those volumes to other running instances.</p>
+        <p>EBS volumes can be as large as 16 TB, and multiple EBS volumes can be striped for even larger volumes or for
+          increased I/O performance. To maximize the performance of your I/O-intensive applications, you can use
+          Provisioned IOPS volumes. Provisioned IOPS volumes are designed to meet the needs of I/O-intensive workloads,
+          particularly database workloads that are sensitive to storage performance and consistency in random access I/O
+          throughput. You specify an IOPS rate when you create the volume and Amazon EBS provisions that rate for the
+          lifetime of the volume. Amazon EBS currently supports up to 20,000 IOPS per volume. You can stripe multiple
+          volumes together to deliver thousands of IOPS per instance to your application.</p>
+        <h5><a href="#Automatically-Scaling-the-Fleet"></a>Automatically Scaling the Fleet</h5>
+        <p>One of the key differences between the AWS Cloud architecture and the traditional hosting model is that AWS
+          can automatically scale the web application fleet on demand to handle changes in traffic. In the traditional
+          hosting model, traffic forecasting models are generally used to provision hosts ahead of projected traffic. In
+          AWS, instances can be provisioned on the fly according to a set of triggers for scaling the fleet out and back
+          in. The Auto Scaling service can create capacity groups of servers that can grow or shrink on demand. Auto
+          Scaling also works directly with Amazon CloudWatch for metrics data and with Elastic Load Balancing to add and
+          remove hosts for load distribution. For example, if the web servers are reporting greater than 80 percent CPU
+          utilization over a period of time, an additional web server could be quickly deployed and then automatically
+          added to the load balancer for immediate inclusion in the loadbalancing rotation.</p>
+        <p>As shown in the AWS web hosting architecture model, you can create multiple Auto Scaling groups for different
+          layers of the architecture, so that each layer can scale independently. For example, the web server Auto
+          Scaling group might trigger scaling in and out in response to changes in network I/O, whereas the application
+          server Auto Scaling group might scale out and in according to CPU utilization. You can set minimums and
+          maximums to help ensure 24/7 availability and to cap to usage within a group.</p>
+        <p>Auto Scaling triggers can be set both to grow and to shrink the total fleet at a given layer to match
+          resource utilization to actual demand. In addition to the Auto Scaling service, you can scale Amazon EC2
+          fleets directly through the Amazon EC2 API, which allows for launching, terminating, and inspecting instances.
+        </p>
+        <h5><a href="#Additional-Security-Features"></a>Additional Security Features</h5>
+        <p>The number and sophistication of Distributed Denial of Service (DDoS) attacks are rising. Traditionally,
+          these attacks are difficult to fend off. They often end up being costly in both mitigation time and power
+          spent, as well as the opportunity cost from lost visits to your website during the attack. There are a number
+          of AWS factors and services that can help you defend against such attacks. The first is the scale of the AWS
+          network. The AWS infrastructure is quite large, and we allow you to leverage our scale to optimize your
+          defense. Several services including Elastic Load Balancing, Amazon CloudFront, and Amazon Route 53 are
+          effective at scaling your web application in response to a large increase in traffic.</p>
+        <p>Two services in particular help with your defense strategy. AWS Shield is a managed DDoS protection service
+          that helps safeguard against various forms of DDoS attack vectors. The standard offering of AWS Shield is free
+          and automatically active throughout your account. This standard offering helps to defend against the most
+          common network and transportation layer attacks. In addition to this level, the advanced offering grants
+          higher levels of protection against your web application by providing you with near real-time visibility into
+          an ongoing attack, as well as integrating at higher levels with the services mentioned earlier. Additionally,
+          you get access to the AWS DDoS Response Team (DRT) to help mitigate large-scale and sophisticated attacks
+          against your resources.</p>
+        <p>AWS WAF (web application firewall) is designed to protect your web applications from attacks that can
+          compromise availability or security, or otherwise consume excessive resources. AWS WAF works inline with
+          CloudFront or Application Load Balancer, along with your custom rules, to defend against attacks such as
+          cross-site scripting, SQL injection, and DDoS. As with most AWS services, AWS WAF comes with a fully featured
+          API that can help automate the creation and editing of rules for your WAF as your security needs change.</p>
+        <h5><a href="#Failover-with-AWS"></a>Failover with AWS</h5>
+        <p>Another key advantage of AWS over traditional web hosting is the Availability Zones that give you easy access
+          to redundant deployment locations. Availability Zones are physically distinct locations that are engineered to
+          be insulated from failures in other Availability Zones. They provide inexpensive, low-latency network
+          connectivity to other Availability Zones in the same AWS Region. As the AWS web hosting architecture diagram
+          in Figure 3 shows, we recommend that you deploy EC2 hosts across multiple Availability Zones to make your web
+          application more fault tolerant. It’s important to ensure that there are provisions for migrating single
+          points of access across Availability Zones in the case of failure. For example, you should set up a database
+          slave in a second Availability Zone so that the persistence of data remains consistent and highly available,
+          even during an unlikely failure scenario. You can do this on Amazon EC2 or Amazon RDS with a click of a
+          button.</p>
+        <p>While some architectural changes are often required when moving an existing web application to the AWS Cloud,
+          there are significant improvements to scalability, reliability, and cost-effectiveness that make using the AWS
+          Cloud well worth the effort. In the next section, we discuss those improvements.</p>
+        <h2><a href="#Key-Considerations-When-Using-AWS-for-Web-Hosting"></a>Key Considerations When Using AWS for Web
+          Hosting</h2>
+        <p>There are some key differences between the AWS Cloud and a traditional web application hosting model. The
+          previous section highlighted many of the key areas that you should consider when deploying a web application
+          to the cloud. This section points out some of the key architectural shifts that you need to consider when you
+          bring any application into the cloud.</p>
+        <h3><a href="#No-More-Physical-Network-Appliances"></a>No More Physical Network Appliances</h3>
+        <p>You cannot deploy physical network appliances in AWS. For example, firewalls, routers, and load balancers for
+          your AWS applications can no longer reside on physical devices but must be replaced with software solutions.
+          There is a wide variety of enterprisequality software solutions, whether for load balancing (e.g., Zeus,
+          HAProxy, NGINX Plus, and Pound) or establishing a VPN connection (e.g., OpenVPN, OpenSwan, and Vyatta). This
+          is not a limitation of what can be run on the AWS Cloud, but it is an architectural change to your application
+          if you use these devices today.</p>
+        <h3><a href="#Firewalls-Everywhere"></a>Firewalls Everywhere</h3>
+        <p>Where you once had a simple DMZ and then open communications among your hosts in a traditional hosting model,
+          AWS enforces a more secure model, in which every host is locked down. One of the steps in planning an AWS
+          deployment is the analysis of traffic between hosts. This analysis will guide decisions on exactly what ports
+          need to be opened. You can create security groups within Amazon EC2 for each type of host in your
+          architecture. In addition, you can create a large variety of simple and tiered security models to enable the
+          minimum access among hosts within your architecture. The use of network access control lists within Amazon VPC
+          can help lock down your network at the subnet level.</p>
+        <h3><a href="#Consider-the-Availability-of-Multiple-Data-Centers"></a>Consider the Availability of Multiple Data
+          Centers</h3>
+        <p>Think of Availability Zones within an AWS Region as multiple data centers. EC2 instances in different
+          Availability Zones are both logically and physically separated, and they provide an easy-to-use model for
+          deploying your application across data centers for both high availability and reliability. Amazon VPC as a
+          regional service allows you to leverage Availability Zones while keeping all of your resources in the same
+          logical network.</p>
+        <h3><a href="#Treat-Hosts-as-Ephemeral-and-Dynamic"></a>Treat Hosts as Ephemeral and Dynamic</h3>
+        <p>Probably the most important shift in how you might architect your AWS application is that Amazon EC2 hosts
+          should be considered ephemeral and dynamic. Any application built for the AWS Cloud should not assume that a
+          host will always be available and should be designed with the knowledge that any data that is not on an EBS
+          volume will be lost if an EC2 instance fails. Additionally, when a new host is brought up, you shouldn’t make
+          assumptions about the IP address or location within an Availability Zone of the host. Your configuration model
+          must be flexible, and your approach to bootstrapping a host must take the dynamic nature of the cloud into
+          account. These techniques are critical for building and running a highly scalable and fault-tolerant
+          application.</p>
+        <h3><a href="#Consider-a-Serverless-Architecture"></a>Consider a Serverless Architecture</h3>
+        <p>This whitepaper primarily focuses on a more traditional web architecture. However, newer services like AWS
+          Lambda and Amazon API Gateway enable you to build a more serverless web application that abstracts away the
+          use of virtual machines to perform compute. In these cases, code is executed on a request-by-request basis,
+          and you pay only for the number of requests and the length of requests. You can find out more about serverless
+          architectures here.</p>
+        <h2><a href="#Conclusion"></a>Conclusion</h2>
+        <p>There are numerous architectural and conceptual considerations when you are contemplating migrating your web
+          application to the AWS Cloud. The benefits of having a cost-effective, highly scalable, and fault-tolerant
+          infrastructure that grows with your business far outstrips the efforts of migrating to the AWS Cloud.</p>
+        <h2><a href="#Further-Reading"></a>Further Reading</h2>
+        <ul>
+          <li>Getting started guide – AWS Web Application hosting for Linux</li>
+          <li>Getting started guide – AWS Web Application hosting for Windows</li>
+          <li>Getting started Video Series: Linux Web Applications in the AWS Cloud</li>
+          <li>Getting started Video Series: .NET Web Applications in the AWS Cloud</li>
+        </ul>
+        <h2><a href="#Document-Revisions"></a>Document Revisions</h2>
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td><strong>September 2019</strong></td>
+              <td>Updated icon label for “Caching with ElastiCache” in Figure 3.</td>
+            </tr>
+            <tr>
+              <td><strong>July 2017</strong></td>
+              <td>Multiple sections added and updated for new services. Updated diagrams for additional clarity and
+                services. Addition of VPC as the standard networking method in AWS in “Network Management.” Added
+                section on DDoS protection and mitigation in “Additional Security Features.” Added a small section on
+                serverless architectures for web hosting.</td>
+            </tr>
+            <tr>
+              <td><strong>September 2012</strong></td>
+              <td>Multiple sections updated to improve clarity. Updated diagrams to use AWS icons. Addition of “Managing
+                Public DNS” section for detail on Amazon Route 53. “Finding Other Hosts and Services” section updated
+                for clarity. “Database Configuration, Backup, and Failover” section updated for clarity and DynamoDB.
+                “Storage and Backup of Data and Assets” section expanded to cover EBS Provisioned IOPS volumes.</td>
+            </tr>
+            <tr>
+              <td><strong>May 2010</strong></td>
+              <td>First publication</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2><a href="#Notes"></a>Notes</h2>
+        <p><a href="https://aws.amazon.com/vpc/">https://aws.amazon.com/vpc/</a> <a
+            href="https://aws.amazon.com/cloudfront/">https://aws.amazon.com/cloudfront/</a> <a
+            href="https://aws.amazon.com/s3/">https://aws.amazon.com/s3/</a> <a
+            href="https://aws.amazon.com/ec2/">https://aws.amazon.com/ec2/</a> <a
+            href="https://aws.amazon.com/route53/">https://aws.amazon.com/route53/</a> <a
+            href="https://aws.amazon.com/security/">https://aws.amazon.com/security/</a> <a
+            href="https://aws.amazon.com/elasticloadbalancing/">https://aws.amazon.com/elasticloadbalancing/</a> <a
+            href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html">http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html</a>
+          <a href="https://aws.amazon.com/simpledb/">https://aws.amazon.com/simpledb/</a> <a
+            href="https://aws.amazon.com/elasticache/">https://aws.amazon.com/elasticache/</a> <a
+            href="https://aws.amazon.com/rds/">https://aws.amazon.com/rds/</a> <a
+            href="https://aws.amazon.com/ebs/">https://aws.amazon.com/ebs/</a> <a
+            href="https://aws.amazon.com/dynamodb/">https://aws.amazon.com/dynamodb/</a> <a
+            href="https://aws.amazon.com/autoscaling/">https://aws.amazon.com/autoscaling/</a> <a
+            href="https://aws.amazon.com/shield/">https://aws.amazon.com/shield/</a> <a
+            href="https://aws.amazon.com/waf/">https://aws.amazon.com/waf/</a> <a
+            href="https://aws.amazon.com/lambda/">https://aws.amazon.com/lambda/</a> <a
+            href="https://aws.amazon.com/api-gateway/">https://aws.amazon.com/api-gateway/</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
